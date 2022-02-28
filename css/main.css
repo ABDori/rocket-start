@@ -12,7 +12,7 @@
 }
 body {
       position: relative;
-      background: url(../bgc/mainly.jpeg) center;
+      background: url(../img/bgc/mainly.jpeg) center;
       background-size: 100% auto;
 
       scroll-behavior: smooth;
