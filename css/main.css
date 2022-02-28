@@ -1,0 +1,598 @@
+* {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+}
+:root {
+      --hd-clr: rgb(175, 129, 28);
+      --hd-shw: 1px 1px 3px rgba(255, 255, 255, 0.527);
+      --main-bx-sh: 2px 2px 3px rgba(247, 244, 210, 0.295);
+      --main-hdr-fs: 5rem;
+      --menu--txt-clr: rgb(99, 101, 224);
+}
+body {
+      position: relative;
+      background: url(../bgc/mainly.jpeg) center;
+      background-size: 100% auto;
+
+      scroll-behavior: smooth;
+
+      font-family: "Comfortaa", cursive;
+      letter-spacing: 1px;
+
+      height: 100vh;
+      width: 100vw;
+}
+body.fixed {
+      overflow: hidden;
+}
+
+/* поведение меню */
+/* поведение меню */
+/* поведение меню */
+.menu {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      transition: 3s 0.3s ease-in;
+      position: absolute;
+
+      z-index: 99;
+}
+.menu__btn {
+      display: flex;
+      position: fixed;
+
+      padding: 1rem;
+      top: 1rem;
+      right: 1rem;
+      color: #fff;
+      font-size: 3rem;
+}
+.menu__btn img {
+      display: block;
+      height: 3rem;
+      width: 3rem;
+      animation-name: black-hole;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+}
+@keyframes black-hole {
+      0% {
+            transform: scale(0.8);
+            transform: translate(0.5px, 0.5px);
+            opacity: 0.9;
+      }
+      12.5% {
+            transform: scale(1);
+            transform: translate(0px, 0.5px);
+            opacity: 1;
+      }
+      25% {
+            transform: scale(1.1);
+            transform: translate(-0.5px, 0px);
+            opacity: 0.9;
+      }
+      37.5% {
+            transform: scale(0.9);
+            transform: translate(0px, 0.5px);
+            opacity: 1;
+      }
+      50% {
+            transform: scale(0.8);
+            transform: translate(-0.5px, 0px);
+            opacity: 0.8;
+      }
+      62.5% {
+            transform: scale(1);
+            transform: translate(0px, 0.5px);
+            opacity: 1;
+      }
+      75% {
+            transform: scale(0.8);
+            transform: translate(-0.5px, -0.5px);
+            opacity: 0.9;
+      }
+      100% {
+            transform: scale(1.1);
+            transform: translate(0.5px, 0.5px);
+            opacity: 1;
+      }
+}
+.menu__inner {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      width: 100vw;
+      height: 100vh;
+
+      background: rgb(1, 0, 15);
+      background: radial-gradient(
+            circle,
+            rgba(1, 0, 15, 1) 0%,
+            rgba(17, 8, 45, 1) 40%,
+            rgba(47, 33, 8, 1) 89%,
+            rgba(46, 26, 0, 1) 100%
+      );
+}
+.menu__inner.active {
+      display: flex;
+}
+.menu__item {
+      list-style: none;
+      display: flex;
+      padding: 1rem;
+      font-weight: 800;
+}
+.menu__item:not(:last-child) {
+      margin-bottom: 2rem;
+}
+
+.menu__item_link {
+      display: flex;
+
+      padding: 1rem 2rem;
+      text-transform: uppercase;
+      font-size: calc(var(--main-hdr-fs) * 0.5);
+      text-decoration: none;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.22), 0px 0px 10px rgba(56, 14, 90, 0.1);
+      color: var(--menu--txt-clr);
+      transition: 0.3s 0.7s;
+}
+
+.menu__item_link:hover {
+      -webkit-transition: box-shadow 0.3s 0.2s;
+      border-radius: 64px;
+      background: #42237b;
+      box-shadow: inset 18px 18px 73px #0a0a1e, inset -18px -18px 73px #1c1e54, 31px 31px 62px #454081,
+            31px -31px 62px #120a80, -31px -31px 62px #1408c2, -31px 31px 62px #1408c2;
+
+      transform: scale(0.7);
+      transition: scale 0.6s 0.2s;
+}
+
+/* поведение звёзд */
+/* поведение звёзд */
+/* поведение звёзд */
+/* поведение звёзд */
+/* поведение звёзд */
+/* .star__mask{}
+.star__item{}
+.star_item:after{} */
+
+.wrapper {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      overflow-y: auto;
+      height: 100%;
+      width: 100%;
+}
+h1,
+h2 {
+      color: var(--hd-clr);
+      text-shadow: var(--hd-shw);
+      text-align: center;
+}
+h1 {
+      font-size: var(--main-hdr-fs);
+      padding-bottom: 2rem;
+      line-height: 4.8rem;
+}
+h2 {
+      font-size: calc(var(--main-hdr-fs) * 0.5);
+      padding-bottom: 1rem;
+      display: flex;
+}
+/* .meteors__item {
+      position: absolute;
+
+      overflow-y: hidden;
+      pointer-events: none;
+      z-index: 0;
+      transform: scale(0);
+}
+.met_left {
+      animation-name: meteor;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      width: 3vw;
+      height: 3vh;
+      background: url(../Img/met2.png) center no-repeat;
+      background-size: 100%;
+}
+@keyframes meteor {
+      0% {
+            left: 5%;
+            top: 7%;
+            opacity: 0;
+            transform: rotate(15deg);
+      }
+
+      12.5% {
+            left: 3%;
+            top: 14%;
+            transform: scale(1);
+            transform: rotate(15deg);
+            opacity: 1;
+      }
+      25% {
+            left: 0%;
+            top: 23%;
+            transform: rotate(15deg);
+            opacity: 0;
+      }
+      100% {
+            opacity: 0;
+      }
+}
+
+.met_right {
+      animation-name: meteor_left;
+
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      width: 3vw;
+      height: 3vh;
+      background: url(../Img/met1.png) center no-repeat;
+
+      background-size: 100%;
+}
+@keyframes meteor_left {
+      0% {
+            left: 7%;
+            top: 3%;
+            transform: scale(0);
+            transform: rotate(-15deg);
+      }
+
+      12.5% {
+            left: 15%;
+            top: 37%;
+            transform: scale(1.1);
+            transform: rotate(-15deg);
+      }
+      25% {
+            left: 18%;
+            top: 53%;
+            transform: scale(0);
+            opacity: 0;
+            transform: rotate(-15deg);
+      }
+      100% {
+            transform: scale(0);
+            opacity: 0;
+      }
+}
+.met1 {
+      animation-delay: 3s;
+      margin: 0% 0 0 5%;
+      animation-duration: 15s;
+}
+.met2 {
+      animation-delay: 5s;
+      margin: 2% 0 0 14%;
+      animation-duration: 5s;
+}
+.met3 {
+      animation-delay: 12s;
+      margin: 7% 0 0 22%;
+      animation-duration: 3.5s;
+}
+.met4 {
+      animation-delay: 2s;
+      margin: 8% 0 0 57%;
+      animation-duration: 3.5s;
+}
+.met5 {
+      animation-delay: 13s;
+      margin: 20% 0 0 85%;
+      animation-duration: 3s;
+}
+.met6 {
+      animation-delay: 3s;
+      margin: 45% 0 0 72%;
+      animation-duration: 6s;
+}
+.met7 {
+      animation-delay: 5s;
+      margin: 14% 0 0 90%;
+      animation-duration: 3s;
+}
+.met8 {
+      animation-delay: 7s;
+      margin: 4% 0 0 45%;
+      animation-duration: 4.5s;
+}
+.met9 {
+      animation-delay: 2s;
+      margin: 3% 0 0 80%;
+      animation-duration: 2.5s;
+}
+.met10 {
+      animation-delay: 13s;
+      margin: 7% 0 0 46%;
+      animation-duration: 3s;
+}
+ */
+.main {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      scroll-snap-align: start;
+      flex-shrink: 0;
+
+      overflow-x: hidden;
+}
+.main h1,
+.main h2 {
+      opacity: 0;
+      transform: translateY(5rem);
+}
+.main.animated h1,
+.main.animated h2 {
+      transition: 1s 0.3s ease-in;
+      opacity: 1;
+      transform: translateY(0);
+}
+.main.covered {
+      opacity: 0;
+      transition: 0.3s 0.2s ease;
+}
+
+/* second page - first view */
+/* second page - first view */
+/* second page - first view */
+/* second page - first view */
+.story_start {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: flex-start;
+      text-align: center;
+}
+.story_start--header {
+      display: flex;
+      justify-content: center;
+      align-self: center;
+}
+.content {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+
+      height: 93vh;
+      width: 93vw;
+      margin: auto;
+      box-sizing: border-box;
+}
+.story_start--container {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 50%;
+      color: var(--menu--txt-clr);
+      justify-content: start;
+      align-items: flex-star;
+      background-color: rgba(0, 0, 0, 0.829);
+      padding: 2rem;
+      border-radius: 1rem;
+      z-index: 3;
+      text-align: justify;
+}
+.story_start--container * {
+      display: flex;
+      max-width: 30rem;
+      transition: 0.2s 0.2s ease-in;
+      transform: translateX(-5rem);
+      opacity: 0;
+}
+.story_start--container *:not(:last-child) {
+      padding-bottom: 2rem;
+}
+.main.animated .story_start--container * {
+      transform: translateX(0);
+      opacity: 1;
+}
+.main.animated .story_start--container *:nth-child(2) {
+      transition-delay: 0.4s;
+}
+.main.animated .story_start--container *:nth-child(3) {
+      transition-delay: 0.6s;
+}
+.main.animated .story_start--container *:nth-child(4) {
+      transition-delay: 0.8s;
+}
+.main.animated .story_start--container *:nth-child(5) {
+      transition-delay: 1s;
+}
+.rocket-start {
+      position: absolute;
+      display: flex;
+      height: 6.5vw;
+      width: 10vw;
+
+      background: url(../Rocket/rocket-forward.png) center no-repeat;
+      background-size: 100%;
+
+      top: 8vh;
+      right: -11vw;
+}
+.main.animated .rocket-start {
+      animation-name: story-start;
+      animation-delay: 2s;
+      animation-duration: 3s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+}
+@keyframes story-start {
+      0% {
+            transform: scale(0.1);
+            top: 12vh;
+            right: 2vw;
+      }
+
+      100% {
+            transform: scale(5);
+            top: 60vh;
+            right: 40vw;
+      }
+}
+.rocket-start::after {
+      content: "";
+      background: url(../Rocket/Fireball-Transparent-Background.png) center no-repeat;
+      background-size: 100%;
+      margin-top: 1vw;
+      height: 2vw;
+      width: 2vw;
+      margin-left: 8.6vw;
+}
+.main.animated .rocket-start::after {
+      animation-name: flame-shine;
+      animation-delay: 2s;
+      animation-duration: 3s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: infinite;
+}
+@keyframes flame-shine {
+      0% {
+            transform: scale(1);
+            opacity: 0;
+      }
+      12.5% {
+            transform: scale(0.9);
+            opacity: 1;
+      }
+      25% {
+            transform: scale(0.6);
+            opacity: 0.7;
+      }
+      37.5% {
+            transform: scale(0.9);
+            opacity: 0.3;
+      }
+      50% {
+            transform: scale(1);
+            opacity: 0.9;
+      }
+      62.5% {
+            transform: scale(0.9);
+            opacity: 1;
+      }
+      75% {
+            transform: scale(0.6);
+            opacity: 0.7;
+      }
+      87.5% {
+            transform: scale(0.8);
+            opacity: 0.3;
+      }
+      100% {
+            transform: scale(0.9);
+            opacity: 1;
+      }
+}
+
+/* third page - about */
+/* third page - about */
+/* third page - about */
+/* third page - about */
+
+.rocket-about {
+      position: absolute;
+      display: flex;
+      height: 10vw;
+      width: 10vw;
+
+      background: url(../Rocket/rocket-forward.png) center no-repeat;
+      background-size: 100%;
+
+      transform: scale(5);
+      top: 60vh;
+      right: 30vw;
+}
+.rocket-about::after {
+      content: "";
+      background: url(../Rocket/Fireball-Transparent-Background.png) center no-repeat;
+      background-size: 100%;
+      transform: translate(45.3vw, 15.8vw);
+      height: 10vw;
+      width: 10vw;
+
+      animation-name: flame-shine-p2;
+      animation-delay: 2s;
+      animation-duration: 3s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+}
+@keyframes flame-shine-p2 {
+      0% {
+            transform: scale(1);
+            opacity: 0;
+      }
+      12.5% {
+            transform: scale(0.9);
+            opacity: 1;
+      }
+      25% {
+            transform: scale(0.6);
+            opacity: 0.7;
+      }
+      37.5% {
+            transform: scale(0.9);
+            opacity: 0.3;
+      }
+      50% {
+            transform: scale(1);
+            opacity: 0.9;
+      }
+      62.5% {
+            transform: scale(0.9);
+            opacity: 1;
+      }
+      75% {
+            transform: scale(0.6);
+            opacity: 0.7;
+      }
+      87.5% {
+            transform: scale(0.8);
+            opacity: 0.3;
+      }
+      100% {
+            transform: scale(0.9);
+            opacity: 1;
+      }
+}
+.main.animated .rocket-about {
+      animation-name: rocket-about;
+      animation-delay: 2s;
+      animation-duration: 3s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+}
+@keyframes rocket-about {
+      0% {
+            transform: scale(1);
+      }
+      100% {
+            transform: scale(15);
+            transform: translateY(-20rem);
+      }
+}
